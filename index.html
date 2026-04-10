@@ -1,7 +1,35 @@
 <!DOCTYPE html>
-<html>
-<head><title>Orange AR</title></head>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open AR</title>
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;display:grid;place-items:center;min-height:100vh;background:#111;color:#fff;text-align:center;padding:24px}
+    .box{max-width:520px}
+    a{color:#7dd3fc}
+  </style>
+</head>
 <body>
-<a href="orange.glb">Orange GLB for AR</a>
+  <div class="box">
+    <h1>Opening AR…</h1>
+    <p>If nothing happens in a second, use the button below.</p>
+    <p><a id="fallback" href="#">Open AR manually</a></p>
+  </div>
+  <script>
+    const glbUrl = 'https://ar-plum-six.vercel.app/orange.glb';
+    const usdzUrl = 'https://ar-plum-six.vercel.app/orange.usdz';
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const isIPhone = /iPhone|iPad|iPod/i.test(ua);
+    const fallback = document.getElementById('fallback');
+
+    if (isIPhone) {
+      fallback.href = usdzUrl;
+      window.location.href = usdzUrl;
+    } else {
+      fallback.href = glbUrl;
+      window.location.href = glbUrl;
+    }
+  </script>
 </body>
 </html>
