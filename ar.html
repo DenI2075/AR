@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width">
+  <script>
+    const base = window.location.origin + '/dishes/orange';
+    const ua = navigator.userAgent;
+
+    if (/iPhone|iPad|iPod/.test(ua)) {
+      window.location = base + '/orange.usdz';
+    } else if (/Android/.test(ua)) {
+      window.location = 'dishes/orange/viewer.html';
+    } else {
+      window.location = 'dishes/orange/viewer.html';
+    }
+  </script>
+</head>
+<body></body>
+</html>
