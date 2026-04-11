@@ -2,20 +2,42 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>View in AR</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Shiko në AR</title>
   <style>
-    body { margin: 0; background: #000; }
-    model-viewer { width: 100%; height: 100vh; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #f0f0f0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; font-family: sans-serif; }
+    model-viewer { width: 100%; height: 80vh; background-color: #f0f0f0; }
+    #ar-button {
+      padding: 16px 32px;
+      background: #ff6600;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      letter-spacing: 0.5px;
+    }
   </style>
 </head>
 <body>
   <model-viewer
-    src="/orange.glb"
+    id="viewer"
+    src="https://ar-nine-phi.vercel.app/orange.glb"
+    ios-src="https://ar-nine-phi.vercel.app/orange.usdz"
     ar
-    ar-modes="webxr scene-viewer"
+    ar-modes="scene-viewer webxr quick-look"
     camera-controls
-    auto-rotate>
+    auto-rotate
+    shadow-intensity="1"
+    xr-environment>
+    <button slot="ar-button" id="ar-button">
+      ✨ Shiko këtë pjatë në tryezën tënde
+    </button>
   </model-viewer>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </body>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </html>
