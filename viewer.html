@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>View in AR</title>
+  <style>
+    body { margin: 0; background: #000; }
+    model-viewer { width: 100%; height: 100vh; }
+  </style>
+</head>
+<body>
+  <model-viewer
+    src="/dishes/orange/orange.glb"
+    ar
+    ar-modes="webxr scene-viewer"
+    camera-controls
+    auto-rotate>
+  </model-viewer>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+</body>
+</html>
